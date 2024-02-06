@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mengwiba/belajar.mengwi-badung.desa.id/
+    - index.php $DEPLOYPATH
+    - style.css $DEPLOYPATH
