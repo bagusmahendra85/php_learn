@@ -47,7 +47,7 @@
       <td><?= $i; ?></td>
       <!-- action -->
       <td>
-        <a href="#">Ubah</a> | 
+        <a href="ubah.php?id=<?= $row["id"]; ?>">Ubah</a> | 
         <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Konfirmasi Hapus Data')">Hapus</a>
       </td>
       <!-- foto -->

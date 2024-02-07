@@ -17,19 +17,31 @@ function query($query) {
 
 }
 
-// CRUD-CREATE functions
-function tambah($data) {
+// CRUD-UPDATE functions
+function ubah($data) {
   global $conn;
-  $nik = $_POST["nik"];
-  $nomor_kk = $_POST["nomor_kk"];
-  $nama = $_POST["nama"];
-  $jenis_kelamin = $_POST["jenis_kelamin"];
-  $banjar = $_POST["banjar"];
-  $tempat_lahir = $_POST["tempat_lahir"];
-  $tgl_lahir = $_POST["tgl_lahir"];
-  $email = $_POST["email"];
+  
+  $id = $data["id"];
+  $nik = htmlspecialchars($data["nik"]);
+  $nomor_kk = htmlspecialchars($data["nomor_kk"]);
+  $nama = htmlspecialchars($data["nama"]);
+  $jenis_kelamin = $data["jenis_kelamin"];
+  $banjar = $data["banjar"];
+  $tempat_lahir = htmlspecialchars($data["tempat_lahir"]);
+  $tgl_lahir = $data["tgl_lahir"];
+  $email = htmlspecialchars($data["email"]);
 
-  $query = "INSERT INTO penduduk VALUES (NULL, '$nik', '$nomor_kk', '$nama', '$jenis_kelamin', '$banjar', '$tempat_lahir', '$tgl_lahir', '$email', NULL)";
+  $query = "UPDATE penduduk SET 
+            nik = '$nik',
+            nomor_kk = '$nomor_kk',
+            nama = '$nama',
+            jenis_kelamin = '$jenis_kelamin',
+            banjar = '$banjar',
+            tempat_lahir = '$tempat_lahir',
+            tgl_lahir = STR_TO_DATE('$tgl_lahir', '%Y-%m-%d'),
+            email = '$email'
+            WHERE id = $id"
+            ;
 
   mysqli_query($conn, $query);
 
@@ -41,6 +53,28 @@ function hapus($id) {
   global $conn;
 
   mysqli_query($conn, "DELETE FROM penduduk WHERE id = $id");
+
+  return mysqli_affected_rows($conn);
+}
+
+//CRUD-CREATE functions
+function tambah($data) {
+  global $conn;
+  $nik = htmlspecialchars($_POST["nik"]);
+  $nomor_kk = htmlspecialchars($_POST["nomor_kk"]);
+  $nama = htmlspecialchars($_POST["nama"]);
+  $jenis_kelamin = htmlspecialchars($_POST["jenis_kelamin"]);
+  $banjar = htmlspecialchars($_POST["banjar"]);
+  $tempat_lahir = htmlspecialchars($_POST["tempat_lahir"]);
+  $tgl_lahir = htmlspecialchars($_POST["tgl_lahir"]);
+  $email = htmlspecialchars($_POST["email"]);
+
+  // Validate and sanitize $tgl_lahir (date of birth)
+  $tgl_lahir = date('Y-m-d', strtotime($tgl_lahir));
+
+  $query = "INSERT INTO penduduk VALUES (NULL, '$nik', '$nomor_kk', '$nama', '$jenis_kelamin', '$banjar', '$tempat_lahir', '$tgl_lahir', '$email', NULL)";
+
+  mysqli_query($conn, $query);
 
   return mysqli_affected_rows($conn);
 }
