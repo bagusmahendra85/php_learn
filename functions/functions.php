@@ -2,7 +2,7 @@
 
 require "./config/connections.php";
 
-// CRUD-READ function
+// CRUD-READ query function
 function query($query) {
   
   global $conn;
@@ -79,5 +79,19 @@ function tambah($data) {
   return mysqli_affected_rows($conn);
 }
 
+
+//CRUD-READ SEARCHING FUNCTION
+function cari($keyword) {
+  $query = "SELECT * FROM penduduk
+            WHERE
+            nama LIKE '%$keyword%' OR
+            nik LIKE '%$keyword%' OR
+            nomor_kk LIKE '%$keyword%' OR
+            banjar LIKE '%$keyword%' OR
+            email LIKE '%$keyword%'
+  ";
+
+  return query($query);
+}
 
 ?>

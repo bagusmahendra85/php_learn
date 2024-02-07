@@ -5,6 +5,11 @@
   // store database query from table_penduduk and put on a var
   $bmdb = query("SELECT * FROM penduduk");
 
+  // search button pressed
+  if ( isset($_POST["cari"]) ) {
+    $bmdb = cari($_POST["keyword"]);
+  }
+
 ; ?>
 
 <!DOCTYPE html>
@@ -25,6 +30,12 @@
   <h1>Data Penduduk</h1>
   
   <a href="tambah.php">Tambah Data Penduduk</a>
+  <br>
+  <br>
+  <form action="" method="post">
+    <input type="text" name="keyword" placeholder="silahkan masukkan keyword.." autocomplete="off" autofocus size="40">
+    <button type="submit" name="cari">Cari</button>
+  </form>
   <br>
   <table border="1" cellpadding="10" cellspacing="0">
     <tr>
