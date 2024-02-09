@@ -69,6 +69,11 @@ function tambah($data) {
   $tgl_lahir = htmlspecialchars($_POST["tgl_lahir"]);
   $email = htmlspecialchars($_POST["email"]);
 
+  $foto = upload();
+  if (!$foto) {
+    return false;
+  }
+
   // Validate and sanitize $tgl_lahir (date of birth)
   $tgl_lahir = date('Y-m-d', strtotime($tgl_lahir));
 
@@ -92,6 +97,18 @@ function cari($keyword) {
   ";
 
   return query($query);
+}
+
+// upload functions
+
+function upload() {
+  
+  $namaFile = $_FILES["foto"]["name"];
+  $ukuranFIle = $_FILES["foto"]["size"];
+  $error = $_FILES["foto"]["error"];
+  $tmpDir = $_FILES["foto"]["tmp_name"];
+  
+
 }
 
 ?>

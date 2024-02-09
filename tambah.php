@@ -8,6 +8,7 @@ $banjars = query("SELECT nama_banjar FROM list_banjar ORDER BY `list_banjar`.`id
 // ---- [LOGIC] ----
 // cek tombol submit apa sudah pernah di click atau belum
 if ( isset($_POST["submit"]) ) {
+  
   // cek status
   if ( tambah($_POST) > 0 ) {
     echo 
@@ -51,7 +52,7 @@ if ( isset($_POST["submit"]) ) {
   
   <h1>Tambah Data Penduduk</h1>
 
-  <form action="" method="post" id="form_penduduk">
+  <form action="" method="post" id="form_penduduk" enctype="multipart/form-data">
     <table>
       <tr>
         <td><label for="nik">NIK</label></td>
@@ -104,6 +105,11 @@ if ( isset($_POST["submit"]) ) {
         <td><label for="email">Email</label></td>
         <td>:</td>
         <td><input type="text" name="email" id="email"></td>
+      </tr>
+      <tr>
+        <td><label for="foto">Upload Foto</label></td>
+        <td>:</td>
+        <td><input type="file" name="foto" id="foto"></td>
       </tr>
       <tr>
         <td></td>
