@@ -62,7 +62,7 @@
         <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Konfirmasi Hapus Data')">Hapus</a>
       </td>
       <!-- foto -->
-      <td><img src="img/female_avatar.jpeg" alt=""></td>
+      <td><img src="usr/uploaded/foto/<?= $row["foto"]; ?>" alt="<?= $row["foto"]; ?>"></td>
       <!-- nik -->
       <td><?= $row["nik"]; ?></td>
       <!-- nomor_kk -->
