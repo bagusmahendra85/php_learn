@@ -26,13 +26,12 @@ if ( isset($_POST["submit"]) ) {
     ;
   } else {
     echo 
-    // "
-    // <script>
-    //   alert('Data Gagal Dirubah!');
-    //   document.location.href ='index.php';
-    // </script>
-    // "
-    mysqli_error($conn);
+    "
+    <script>
+      alert('Data Gagal Dirubah!');
+      document.location.href ='index.php';
+    </script>
+    "
     ;
   }
 
@@ -58,10 +57,11 @@ if ( isset($_POST["submit"]) ) {
   
   <h1>Ubah Data Penduduk</h1>
 
-  <form action="" method="post" id="form_penduduk">
+  <form action="" method="post" id="form_penduduk" enctype="multipart/form-data">
     <table>
       <!-- ID HIDDEN FIELD -->
       <input type="hidden" name="id" value="<?= $data["id"] ?>">
+      <input type="hidden" name="oldFoto" value="<?= $data["foto"] ?>">
       <!-- NIK FIELD -->
       <tr>
         <td><label for="nik">NIK</label></td>
@@ -123,6 +123,19 @@ if ( isset($_POST["submit"]) ) {
         <td><label for="email">Email</label></td>
         <td>:</td>
         <td><input type="text" name="email" id="email" value="<?= $data["email"]; ?>"></td>
+      </tr>
+      <!-- foto -->
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+          <img src="usr/uploaded/foto/<?= $data["foto"]; ?>"  alt="<?= $data["foto"]; ?>" >
+        </td>
+      </tr>
+      <tr>
+        <td><label for="foto">Upload Foto</label></td>
+        <td>:</td>
+        <td><input type="file" name="foto" id="foto"></td>
       </tr>
       <!-- SUBMIT BUTTON -->
       <tr>
