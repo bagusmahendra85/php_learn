@@ -54,21 +54,25 @@ if ( isset($_POST["submit"]) ) {
 
   <form action="" method="post" id="form_penduduk" enctype="multipart/form-data">
     <table>
+      <!-- nama -->
       <tr>
         <td><label for="nik">NIK</label></td>
         <td>:</td>
         <td><input type="text" name="nik" id="nik"></td>
       </tr>
+      <!-- nomor kk -->
       <tr>
         <td><label for="nomor_kk">Nomor KK</label></td>
         <td>:</td>
         <td><input type="text" name="nomor_kk" id="nomor_kk"></td>
       </tr>
+      <!-- nama -->
       <tr>
         <td><label for="nama">Nama</label></td>
         <td>:</td>
         <td><input type="text" name="nama" id="nama"></td>
       </tr>
+      <!-- jenis kelamin -->
       <tr>
         <td><label for="jenis_kelamin">Jenis Kelamin</label></td>
         <td>:</td>
@@ -79,6 +83,7 @@ if ( isset($_POST["submit"]) ) {
           <label for="perempuan">Perempuan</label>
         </td>
       </tr>
+      <!-- banjar -->
       <tr>
         <td><label for="banjar">Banjar</label></td>
         <td>:</td>
@@ -91,26 +96,31 @@ if ( isset($_POST["submit"]) ) {
           </select>
         </td>
       </tr>
+      <!-- tempat lahir -->
       <tr>
         <td><label for="tempat_lahir">Tempat Lahir</label></td>
         <td>:</td>
         <td><input type="text" name="tempat_lahir" id="tempat_lahir"></td>
       </tr>
+      <!-- tgl lahir -->
       <tr>
         <td><label for="tgl_lahir">Tanggal Lahir</label></td>
         <td>:</td>
         <td><input type="date" name="tgl_lahir" id="tgl_lahir"></td>
       </tr>
+      <!-- email -->
       <tr>
         <td><label for="email">Email</label></td>
         <td>:</td>
         <td><input type="text" name="email" id="email"></td>
       </tr>
+      <!-- foto -->
       <tr>
         <td><label for="foto">Upload Foto</label></td>
         <td>:</td>
         <td><input type="file" name="foto" id="foto"></td>
       </tr>
+      <!-- submit button -->
       <tr>
         <td></td>
         <td></td>
